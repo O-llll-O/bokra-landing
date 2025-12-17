@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'public/**'
+      - 'firebase.json'
+      - '.github/workflows/firebase-deploy.yml'
+  workflow_dispatch:
 
 jobs:
   deploy:
