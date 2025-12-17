@@ -1,0 +1,17 @@
+{
+  "name": "bokra-landing-page",
+  "version": "1.0.0",
+  "description": "BOKRA Healthcare Booking Platform - Landing Website",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "healthcare",
+    "landing-page",
+    "bokra"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

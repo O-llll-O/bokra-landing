@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BOKRA - Healthcare Booking Platform. Book appointments with doctors, manage medical records, and connect with healthcare providers securely.">
+    <meta name="keywords" content="healthcare, booking, appointments, doctors, medical, BOKRA">
+    <title>BOKRA - Healthcare Booking Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyB4Al3NrIukhjRkPnbapMpDmTUk4gzqBbc",
+            authDomain: "bokra-44bc4.firebaseapp.com",
+            databaseURL: "https://bokra-44bc4-default-rtdb.firebaseio.com",
+            projectId: "bokra-44bc4",
+            storageBucket: "bokra-44bc4.firebasestorage.app",
+            messagingSenderId: "387860985016",
+            appId: "1:387860985016:web:21e92a19758425bcf1304d"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        let analytics = null;
+        try {
+            analytics = getAnalytics(app);
+        } catch (error) {
+            console.log('Analytics initialization:', error);
+        }
+        
+        window.firebaseApp = app;
+        window.firebaseAnalytics = analytics;
+        window.firebaseLogEvent = logEvent;
+        
+        console.log('✅ Firebase initialized successfully');
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="bokraLogo.svg" alt="BOKRA Logo" class="logo-img">
+                <span class="brand-name">BOKRA</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#roles">For Patients & Doctors</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Your Healthcare</span>
+                        <span class="title-line highlight">Simplified</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        A comprehensive platform connecting patients, doctors, and clinics in one secure and easy-to-use place
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#download" class="btn btn-primary">
+                            <span>⬇️</span>
+                            <span>Download App</span>
+                        </a>
+                        <a href="#features" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Verified Doctors</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Satisfied Patients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="Hand and iPhone 16 Pro.svg" alt="BOKRA App Preview" class="phone-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose BOKRA?</h2>
+                <p class="section-subtitle">Everything you need for seamless healthcare management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">🔍</div>
+                    </div>
+                    <h3>Find Doctors Easily</h3>
+                    <p>Discover healthcare providers by specialization, rating, and availability</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">📅</div>
+                    </div>
+                    <h3>Book Instantly</h3>
+                    <p>Schedule, cancel, or reschedule appointments with just a few taps. Real-time availability ensures convenience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">💬</div>
+                    </div>
+                    <h3>Secure Communication</h3>
+                    <p>Chat securely with your doctors. Get medical advice and prescriptions delivered directly to your device</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">📋</div>
+                    </div>
+                    <h3>Digital Records</h3>
+                    <p>Access your complete medical history, prescriptions, and health records anytime, anywhere</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">💳</div>
+                    </div>
+                    <h3>Online Payments</h3>
+                    <p>Pay for appointments and services securely through integrated payment solutions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">🔒</div>
+                    </div>
+                    <h3>Privacy First</h3>
+                    <p>Your medical data is encrypted and protected. We prioritize your privacy and security</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Roles Section -->
+    <section id="roles" class="roles">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Built for Everyone</h2>
+                <p class="section-subtitle">A comprehensive platform for all healthcare stakeholders</p>
+            </div>
+            <div class="roles-grid">
+                <!-- Patients -->
+                <div class="role-card role-patient">
+                    <div class="role-header">
+                        <div class="role-icon-wrapper patient-icon">
+                            <div class="role-icon">👤</div>
+                        </div>
+                        <div class="role-title-wrapper">
+                            <h3>For Patients</h3>
+                            <p class="role-subtitle">Manage your health easily</p>
+                        </div>
+                    </div>
+                    <ul class="role-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Secure registration and login</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Browse doctors by specialization and rating</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Book, cancel, or reschedule appointments</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Secure in-app chat with doctors</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>View medical records and digital prescriptions</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Online payments</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Rate and review doctors and clinics</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Real-time notifications</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Doctors -->
+                <div class="role-card role-doctor">
+                    <div class="role-header">
+                        <div class="role-icon-wrapper doctor-icon">
+                            <div class="role-icon">👨‍⚕️</div>
+                        </div>
+                        <div class="role-title-wrapper">
+                            <h3>For Doctors</h3>
+                            <p class="role-subtitle">Manage your clinic efficiently</p>
+                        </div>
+                    </div>
+                    <ul class="role-features">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Register and submit verification documents</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Manage schedules and working hours</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>View and manage patient appointments</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Secure communication with patients</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Digital prescription management</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Access patient history</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <div class="section-header">
+                    <h2 class="section-title">Get BOKRA Today</h2>
+                    <p class="section-subtitle">Download the Android app and start managing your healthcare journey</p>
+                </div>
+                
+                <!-- App Type Selection -->
+                <div class="app-type-selector">
+                    <button class="app-type-btn active" data-app-type="patient" id="patientBtn">
+                        <div class="app-type-icon">👤</div>
+                        <div class="app-type-info">
+                            <h4>Patient App</h4>
+                            <p>For patients to book appointments</p>
+                        </div>
+                    </button>
+                    <button class="app-type-btn" data-app-type="doctor" id="doctorBtn">
+                        <div class="app-type-icon">👨‍⚕️</div>
+                        <div class="app-type-info">
+                            <h4>Doctor App</h4>
+                            <p>For doctors to manage appointments</p>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Download Box -->
+                <div class="download-box" id="downloadBox">
+                    <div class="download-info">
+                        <img src="bokraLogo.svg" alt="BOKRA Logo" class="download-logo">
+                        <div class="app-details">
+                            <h3 id="appName">BOKRA Patient</h3>
+                            <p id="appDescription">Healthcare Booking Platform for Patients</p>
+                            <div class="app-badges">
+                                <div class="app-badge">Android</div>
+                                <div class="app-badge version">v1.0.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" 
+                       class="btn btn-download" 
+                       id="downloadLink"
+                       download="bokra-patient.apk">
+                        <span class="download-icon">⬇️</span>
+                        <span>Download APK</span>
+                    </a>
+                </div>
+
+                <div class="install-instructions">
+                    <h4>Installation Instructions</h4>
+                    <ol>
+                        <li>Download the APK file to your Android device</li>
+                        <li>Open your device's Settings → Security</li>
+                        <li>Enable "Install from Unknown Sources" or "Allow from this source"</li>
+                        <li>Open the downloaded APK file</li>
+                        <li>Tap "Install" and follow the prompts</li>
+                        <li>Launch BOKRA and create your account</li>
+                    </ol>
+                    <p class="security-note">
+                        <span class="security-icon">🔒</span>
+                        The APK is signed and verified. Only download from official sources.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="bokraLogo.svg" alt="BOKRA Logo" class="footer-logo">
+                    <span class="brand-name">BOKRA</span>
+                    <p>Your trusted healthcare booking platform</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#roles">For Patients & Doctors</a></li>
+                            <li><a href="#download">Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Security</h4>
+                        <ul>
+                            <li>Encrypted Data</li>
+                            <li>Privacy First</li>
+                            <li>Secure Authentication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BOKRA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
