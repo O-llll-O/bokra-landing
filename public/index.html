@@ -260,49 +260,97 @@
         <div class="container">
             <div class="download-content">
                 <div class="section-header">
-                    <h2 class="section-title">Get BOKRA Today</h2>
-                    <p class="section-subtitle">Download the Android app and start managing your healthcare journey</p>
+                    <h2 class="section-title">Download BOKRA Apps</h2>
+                    <p class="section-subtitle">Choose the app that fits your needs and start your healthcare journey today</p>
                 </div>
                 
-                <!-- App Type Selection -->
-                <div class="app-type-selector">
-                    <button class="app-type-btn active" data-app-type="patient" id="patientBtn">
-                        <div class="app-type-icon">👤</div>
-                        <div class="app-type-info">
-                            <h4>Patient App</h4>
-                            <p>For patients to book appointments</p>
+                <!-- Download Apps Grid -->
+                <div class="download-apps-grid">
+                    <!-- Patient App -->
+                    <div class="download-app-card patient-app">
+                        <div class="app-card-header">
+                            <div class="app-icon-wrapper patient-icon-bg">
+                                <div class="app-icon">👤</div>
+                            </div>
+                            <div class="app-card-badge">For Patients</div>
                         </div>
-                    </button>
-                    <button class="app-type-btn" data-app-type="doctor" id="doctorBtn">
-                        <div class="app-type-icon">👨‍⚕️</div>
-                        <div class="app-type-info">
-                            <h4>Doctor App</h4>
-                            <p>For doctors to manage appointments</p>
-                        </div>
-                    </button>
-                </div>
-
-                <!-- Download Box -->
-                <div class="download-box" id="downloadBox">
-                    <div class="download-info">
-                        <img src="bokraLogo.svg" alt="BOKRA Logo" class="download-logo">
-                        <div class="app-details">
-                            <h3 id="appName">BOKRA Patient</h3>
-                            <p id="appDescription">Healthcare Booking Platform for Patients</p>
+                        <div class="app-card-content">
+                            <h3>BOKRA Patient</h3>
+                            <p>Book appointments, manage your health records, and connect with doctors seamlessly</p>
+                            <div class="app-features-list">
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Book & manage appointments</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>View medical records</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Secure chat with doctors</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Online payments</span>
+                                </div>
+                            </div>
                             <div class="app-badges">
-                                <div class="app-badge">Android</div>
-                                <div class="app-badge version">v1.0.0</div>
+                                <span class="app-badge">Android</span>
+                                <span class="app-badge version">v1.0.0</span>
                             </div>
                         </div>
+                        <a href="https://github.com/USERNAME/REPO/releases/latest/download/patient-app.apk" 
+                           class="btn btn-download-patient" 
+                           id="patientDownloadLink"
+                           download="bokra-patient.apk">
+                            <span class="download-icon">⬇️</span>
+                            <span>Download Patient App</span>
+                        </a>
                     </div>
-                    
-                    <a href="#" 
-                       class="btn btn-download" 
-                       id="downloadLink"
-                       download="bokra-patient.apk">
-                        <span class="download-icon">⬇️</span>
-                        <span>Download APK</span>
-                    </a>
+
+                    <!-- Doctor App -->
+                    <div class="download-app-card doctor-app">
+                        <div class="app-card-header">
+                            <div class="app-icon-wrapper doctor-icon-bg">
+                                <div class="app-icon">👨‍⚕️</div>
+                            </div>
+                            <div class="app-card-badge">For Doctors</div>
+                        </div>
+                        <div class="app-card-content">
+                            <h3>BOKRA Doctor</h3>
+                            <p>Manage your clinic, appointments, and communicate with patients efficiently</p>
+                            <div class="app-features-list">
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Manage appointments</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Patient history access</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Digital prescriptions</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-check">✓</span>
+                                    <span>Schedule management</span>
+                                </div>
+                            </div>
+                            <div class="app-badges">
+                                <span class="app-badge">Android</span>
+                                <span class="app-badge version">v1.0.0</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/USERNAME/REPO/releases/latest/download/doctor-app.apk" 
+                           class="btn btn-download-doctor" 
+                           id="doctorDownloadLink"
+                           download="bokra-doctor.apk">
+                            <span class="download-icon">⬇️</span>
+                            <span>Download Doctor App</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="install-instructions">

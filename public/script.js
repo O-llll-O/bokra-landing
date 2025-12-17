@@ -86,73 +86,45 @@
         observer.observe(card);
     });
 
-    // App Type Selection
-    const patientBtn = document.getElementById('patientBtn');
-    const doctorBtn = document.getElementById('doctorBtn');
-    const downloadLink = document.getElementById('downloadLink');
-    const appName = document.getElementById('appName');
-    const appDescription = document.getElementById('appDescription');
+    // Download buttons tracking with Firebase Analytics
+    const patientDownloadLink = document.getElementById('patientDownloadLink');
+    const doctorDownloadLink = document.getElementById('doctorDownloadLink');
     
-    // App download URLs - Update these with your actual GitHub release URLs
-    const appUrls = {
-        patient: 'https://github.com/USERNAME/REPO/releases/latest/download/patient-app.apk',
-        doctor: 'https://github.com/USERNAME/REPO/releases/latest/download/doctor-app.apk'
-    };
-    
-    const appNames = {
-        patient: 'BOKRA Patient',
-        doctor: 'BOKRA Doctor'
-    };
-    
-    const appDescriptions = {
-        patient: 'Healthcare Booking Platform for Patients',
-        doctor: 'Healthcare Booking Platform for Doctors'
-    };
-    
-    function updateAppSelection(appType) {
-        // Update active button
-        patientBtn.classList.toggle('active', appType === 'patient');
-        doctorBtn.classList.toggle('active', appType === 'doctor');
-        
-        // Update download link
-        downloadLink.href = appUrls[appType];
-        downloadLink.download = `bokra-${appType}.apk`;
-        
-        // Update app name and description
-        appName.textContent = appNames[appType];
-        appDescription.textContent = appDescriptions[appType];
-    }
-    
-    if (patientBtn && doctorBtn) {
-        patientBtn.addEventListener('click', function() {
-            updateAppSelection('patient');
-        });
-        
-        doctorBtn.addEventListener('click', function() {
-            updateAppSelection('doctor');
-        });
-    }
-    
-    // Download button click tracking with Firebase Analytics
-    const downloadBtn = document.querySelector('.btn-download');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function() {
-            const currentAppType = patientBtn.classList.contains('active') ? 'patient' : 'doctor';
-            
-            // Track download button click in Firebase Analytics
+    if (patientDownloadLink) {
+        patientDownloadLink.addEventListener('click', function() {
+            // Track patient app download
             if (window.firebaseAnalytics && window.firebaseLogEvent) {
                 try {
                     window.firebaseLogEvent(window.firebaseAnalytics, 'download_button_click', {
-                        button_name: 'apk_download',
-                        app_type: currentAppType,
+                        button_name: 'patient_app_download',
+                        app_type: 'patient',
                         page_location: window.location.href
                     });
-                    console.log('📊 Download event tracked in Firebase Analytics');
+                    console.log('📊 Patient app download tracked in Firebase Analytics');
                 } catch (error) {
                     console.log('Analytics tracking error:', error);
                 }
             }
-            console.log(`Download button clicked for ${currentAppType} app`);
+            console.log('Patient app download clicked');
+        });
+    }
+    
+    if (doctorDownloadLink) {
+        doctorDownloadLink.addEventListener('click', function() {
+            // Track doctor app download
+            if (window.firebaseAnalytics && window.firebaseLogEvent) {
+                try {
+                    window.firebaseLogEvent(window.firebaseAnalytics, 'download_button_click', {
+                        button_name: 'doctor_app_download',
+                        app_type: 'doctor',
+                        page_location: window.location.href
+                    });
+                    console.log('📊 Doctor app download tracked in Firebase Analytics');
+                } catch (error) {
+                    console.log('Analytics tracking error:', error);
+                }
+            }
+            console.log('Doctor app download clicked');
         });
     }
 

@@ -250,6 +250,7 @@ body {
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 .title-line {
@@ -408,8 +409,26 @@ body {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     text-align: center;
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
 }
 
 .feature-card:hover {
@@ -475,8 +494,34 @@ body {
     padding: 2.5rem;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+.role-patient::after {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.role-doctor::after {
+    background: var(--gradient-primary);
+}
+
+.role-card:hover::after {
+    transform: scaleX(1);
 }
 
 .role-card:hover {
@@ -595,70 +640,190 @@ body {
     text-align: center;
 }
 
-/* App Type Selector */
-.app-type-selector {
+/* Download Apps Grid */
+.download-apps-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
     margin: 3rem 0;
-    max-width: 800px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.app-type-btn {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-xl);
-    padding: 2rem 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.app-type-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-}
-
-.app-type-btn.active {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-.app-type-icon {
-    font-size: 3rem;
-    line-height: 1;
-}
-
-.app-type-info h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.app-type-info p {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0;
-}
-
-.download-box {
+.download-app-card {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-2xl);
-    padding: 3rem 2rem;
-    margin: 3rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: var(--shadow-2xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.download-app-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.app-card-header {
+    padding: 2.5rem 2.5rem 1.5rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.app-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.download-app-card:hover .app-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.patient-icon-bg {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.doctor-icon-bg {
+    background: var(--gradient-primary);
+}
+
+.app-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.app-card-badge {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.app-card-content {
+    padding: 0 2.5rem 2rem;
+    flex: 1;
+}
+
+.app-card-content h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.app-card-content > p {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.app-features-list {
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.feature-check {
+    color: #10b981;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.app-badges {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.app-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.app-badge.version {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.download-app-card .btn {
+    margin: 0 2.5rem 2.5rem;
+    width: calc(100% - 5rem);
+    justify-content: center;
+    font-size: 1.125rem;
+    padding: 1.25rem 2rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s;
+}
+
+.btn-download-patient {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+.btn-download-patient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+.btn-download-doctor {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download-doctor:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background: var(--bg-accent);
+}
+
+.download-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .download-info {
@@ -854,15 +1019,32 @@ body {
     font-size: 0.95rem;
 }
 
-/* Mobile adjustments for app selector */
+/* Mobile adjustments for download apps */
 @media (max-width: 767px) {
-    .app-type-selector {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .download-apps-grid {
+        gap: 2rem;
     }
     
-    .app-type-btn {
-        padding: 1.5rem 1rem;
+    .app-card-header {
+        padding: 2rem 1.5rem 1rem;
+    }
+    
+    .app-card-content {
+        padding: 0 1.5rem 1.5rem;
+    }
+    
+    .download-app-card .btn {
+        margin: 0 1.5rem 1.5rem;
+        width: calc(100% - 3rem);
+    }
+    
+    .app-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .app-icon {
+        font-size: 2.5rem;
     }
 }
 
@@ -901,8 +1083,9 @@ body {
         justify-items: start;
     }
     
-    .app-type-selector {
-        max-width: 700px;
+    .download-apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
     }
 
     .features-grid {
@@ -948,10 +1131,8 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .download-box {
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+    .download-apps-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .install-instructions {

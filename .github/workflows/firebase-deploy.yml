@@ -30,3 +30,4 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json
         run: |
           firebase deploy --only hosting --project bokra-44bc4
+          
