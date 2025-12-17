@@ -136,37 +136,6 @@
         }
     });
 
-    // Animate stats on scroll
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statNumbers = entry.target.querySelectorAll('.stat-number');
-                statNumbers.forEach(stat => {
-                    const finalValue = stat.textContent;
-                    const numericValue = parseInt(finalValue.replace(/\D/g, ''));
-                    if (!isNaN(numericValue) && numericValue > 0) {
-                        let current = 0;
-                        const increment = numericValue / 50;
-                        const timer = setInterval(() => {
-                            current += increment;
-                            if (current >= numericValue) {
-                                stat.textContent = finalValue;
-                                clearInterval(timer);
-                            } else {
-                                stat.textContent = Math.floor(current) + finalValue.replace(/\d/g, '');
-                            }
-                        }, 30);
-                    }
-                });
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) {
-        statsObserver.observe(heroStats);
-    }
 
 })();
 
