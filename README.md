@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BOKRA Landing Page - Quick Start Guide
 
 ## 🚀 Running the Project Locally
@@ -128,3 +129,7 @@ firebase deploy --only hosting
 - **Fonts not loading?** Check your internet connection (fonts load from Google Fonts)
 - **Mobile menu not working?** Ensure JavaScript is enabled in your browser
 
+=======
+# bokra-landing
+Official landing website for BOKRA – a mobile-first healthcare booking platform
+>>>>>>> c4a3b401a59e790a01a1be426abeadd718ef25d8
