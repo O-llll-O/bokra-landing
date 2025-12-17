@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "bokra-44bc4-da5d9",
+    "site": "bokra-44bc4",
     "public": "public",
     "ignore": [
       "firebase.json",
